@@ -8,10 +8,20 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Activities.LoginActivity" >
 
-    <Button
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_twitter_icon"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/ivIcon"
         android:layout_margin="20dp"
         android:onClick="loginToRest"
         android:text="@string/login_label" />

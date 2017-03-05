@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/Irene/git/TwitterClient/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_twitter_icon.png",
+        "source": "/Users/Irene/git/TwitterClient/app/src/main/res/drawable-hdpi/ic_twitter_icon.png"
+    },
+    {
         "merged": "/Users/Irene/git/TwitterClient/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_add_black_24dp.png",
         "source": "/Users/Irene/git/TwitterClient/app/build/generated/res/pngs/debug/drawable-hdpi/ic_add_black_24dp.png"
     },

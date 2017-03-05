@@ -96,7 +96,7 @@ public class NewTweetFragment extends DialogFragment {
             user = (UserCredential) Parcels.unwrap(getArguments().getParcelable("User"));
         }
         tvUserName.setText(user.name);
-        tvUserScreenName.setText(user.screenName);
+        tvUserScreenName.setText("@"+user.screenName);
         Glide.with(getContext())
                 .load(user.profileImageUrl)
                 .into(ivUserPhoto);

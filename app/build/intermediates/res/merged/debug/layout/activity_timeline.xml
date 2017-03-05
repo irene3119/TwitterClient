@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_margin="16dp"
+        app:rippleColor="#00aced"
         app:srcCompat="@drawable/ic_add"
         app:layout_anchor="@id/rvTimeline"
         app:layout_anchorGravity="bottom|right|end" />

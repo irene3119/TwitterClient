@@ -1,4 +1,4 @@
-package com.codepath.apps.twitterclient.Utils;
+package com.codepath.apps.twitterclient.utils;
 
 import android.content.Context;
 
@@ -56,11 +56,40 @@ public class TwitterClient extends OAuthBaseClient {
 		getClient().get(apiUrl,null,handler);
 	}
 
+	public void getUserShow(String screen_name,AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("users/show.json");
+		RequestParams params = new RequestParams();
+		params.put("screen_name", screen_name);
+		getClient().get(apiUrl,params,handler);
+
+	}
+
 	public void postStatus(String status,AsyncHttpResponseHandler handler){
 		String apiUrl = getApiUrl("statuses/update.json");
 		RequestParams params = new RequestParams();
 		params.put("status", status);
 		getClient().post(apiUrl,params,handler);
+	}
+
+	public void getMentionsTimeLine(Long max_id, AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("statuses/mentions_timeline.json");
+		RequestParams params = new RequestParams();
+		params.put("count", 25);
+		params.put("since_id", 1);
+		if(max_id != null)
+			params.put("max_id", max_id);
+		getClient().get(apiUrl,params,handler);
+	}
+
+	public void getUserTimeLine(String screenName, Long max_id, AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("statuses/user_timeline.json");
+		RequestParams params = new RequestParams();
+		params.put("count", 25);
+		params.put("since_id", 1);
+		if(max_id != null)
+			params.put("max_id", max_id);
+		params.put("screen_name", screenName);
+		getClient().get(apiUrl,params,handler);
 	}
 
 }

@@ -1,6 +1,7 @@
-package com.codepath.apps.twitterclient.Adapters;
+package com.codepath.apps.twitterclient.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
@@ -11,9 +12,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.codepath.apps.twitterclient.R;
-import com.codepath.apps.twitterclient.Utils.ViewHolderOnlyText;
-import com.codepath.apps.twitterclient.Utils.ViewHolderPhoto;
+import com.codepath.apps.twitterclient.activities.ProfileActivity;
 import com.codepath.apps.twitterclient.models.Tweet;
+import com.codepath.apps.twitterclient.utils.ViewHolderOnlyText;
+import com.codepath.apps.twitterclient.utils.ViewHolderPhoto;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -43,30 +45,6 @@ public class TimeLineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private Context getContext() {
         return mContext;
     }
-
-//    public static class ViewHolder extends RecyclerView.ViewHolder {
-//        // Your holder should contain a member variable
-//        // for any view that will be set as you render a row
-//        public TextView tvUserName;
-//        public TextView tvUserScreenName;
-//        public TextView tvPostTime;
-//        public TextView tvBody;
-//        public ImageView ivUserPhoto;
-//
-//        // We also create a constructor that accepts the entire item row
-//        // and does the view lookups to find each subview
-//        public ViewHolder(View itemView) {
-//            // Stores the itemView in a public final member variable that can be used
-//            // to access the context from any ViewHolder instance.
-//            super(itemView);
-//
-//            tvUserName = (TextView) itemView.findViewById(R.id.tvUserName);
-//            tvUserScreenName = (TextView) itemView.findViewById(R.id.tvUserScreenName);
-//            tvPostTime = (TextView) itemView.findViewById(R.id.tvPostTime);
-//            tvBody = (TextView) itemView.findViewById(R.id.tvBody);
-//            ivUserPhoto = (ImageView) itemView.findViewById(R.id.ivUserPhoto);
-//        }
-//    }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -140,7 +118,7 @@ public class TimeLineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     private void configureViewHolderOnlyText(ViewHolderOnlyText vh1, int position) {
         // Get the data model based on position
-        Tweet tweet = mTweets.get(position);
+        final Tweet tweet = mTweets.get(position);
 
         // Set item views based on your views and data model
         TextView tvUserName = vh1.tvUserName;
@@ -155,6 +133,14 @@ public class TimeLineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         Glide.with(mContext)
                 .load(tweet.user.profileImageUrl)
                 .into(ivUserPhoto);
+        ivUserPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), ProfileActivity.class);
+                i.putExtra("screen_name", tweet.user.screenName);
+                getContext().startActivity(i);
+            }
+        });
     }
 
     private void configureViewHolderPhoto(ViewHolderPhoto vh1, int position) {

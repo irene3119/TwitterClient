@@ -8,7 +8,7 @@ import org.parceler.IdentityCollection;
 import org.parceler.ParcelWrapper;
 import org.parceler.ParcelerRuntimeException;
 
-@Generated(value = "org.parceler.ParcelAnnotationProcessor", date = "2017-03-05T21:54+0800")
+@Generated(value = "org.parceler.ParcelAnnotationProcessor", date = "2017-03-10T01:06+0800")
 @SuppressWarnings({
     "unchecked",
     "deprecation"
@@ -159,6 +159,7 @@ public class UserCredential$$Parcelable
                 parcel$$1 .writeInt(1);
                 parcel$$1 .writeInt(userCredential$$1 .listedCount);
             }
+            parcel$$1 .writeString(userCredential$$1 .profileBannerUrl);
             parcel$$1 .writeString(userCredential$$1 .url);
             parcel$$1 .writeString(userCredential$$1 .profileSidebarFillColor);
             parcel$$1 .writeString(userCredential$$1 .profileImageUrlHttps);
@@ -337,6 +338,7 @@ public class UserCredential$$Parcelable
                 integer$$4 = parcel$$3 .readInt();
             }
             userCredential$$4 .listedCount = integer$$4;
+            userCredential$$4 .profileBannerUrl = parcel$$3 .readString();
             userCredential$$4 .url = parcel$$3 .readString();
             userCredential$$4 .profileSidebarFillColor = parcel$$3 .readString();
             userCredential$$4 .profileImageUrlHttps = parcel$$3 .readString();

@@ -6,21 +6,60 @@
     android:id="@+id/activity_timeline"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.codepath.apps.twitterclient.Activities.TimelineActivity">
+    android:fitsSystemWindows="true"
+    tools:context="com.codepath.apps.twitterclient.activities.TimelineActivity">
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/swipeContainer"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:id="@+id/appbarLayout">
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvTimeline"
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_gravity="left"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/ic_twitter_icon" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <com.astuetz.PagerSlidingTabStrip
+            android:id="@+id/tabs"
+            app:pstsShouldExpand="true"
+            app:pstsTextAllCaps="true"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            app:pstsIndicatorColor="@color/twitterblue"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_below="@+id/tabs"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+    <!--<fragment-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:name="com.codepath.apps.twitterclient.fragments.MentionsTimelineFragment"-->
+        <!--android:id="@+id/fragment_timeline"-->
+        <!--tools:layout="@layout/fragment_timeline_list"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true" />-->
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fbtnCompose"
@@ -30,7 +69,9 @@
         android:layout_margin="16dp"
         app:rippleColor="#00aced"
         app:srcCompat="@drawable/ic_add"
-        app:layout_anchor="@id/rvTimeline"
+        app:layout_anchor="@id/viewpager"
         app:layout_anchorGravity="bottom|right|end" />
+
+
 
 </android.support.design.widget.CoordinatorLayout>

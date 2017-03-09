@@ -37,13 +37,13 @@ public class Status {
     public String inReplyToScreenName;
     @SerializedName("in_reply_to_status_id")
     @Expose
-    public Integer inReplyToStatusId;
+    public Long inReplyToStatusId;
     @SerializedName("in_reply_to_status_id_str")
     @Expose
     public String inReplyToStatusIdStr;
     @SerializedName("in_reply_to_user_id")
     @Expose
-    public Integer inReplyToUserId;
+    public Long inReplyToUserId;
     @SerializedName("in_reply_to_user_id_str")
     @Expose
     public String inReplyToUserIdStr;

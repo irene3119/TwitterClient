@@ -8,7 +8,7 @@ import org.parceler.IdentityCollection;
 import org.parceler.ParcelWrapper;
 import org.parceler.ParcelerRuntimeException;
 
-@Generated(value = "org.parceler.ParcelAnnotationProcessor", date = "2017-03-05T21:54+0800")
+@Generated(value = "org.parceler.ParcelAnnotationProcessor", date = "2017-03-10T01:06+0800")
 @SuppressWarnings({
     "unchecked",
     "deprecation"
@@ -55,7 +55,7 @@ public class Status$$Parcelable
                 parcel$$1 .writeInt(-1);
             } else {
                 parcel$$1 .writeInt(1);
-                parcel$$1 .writeInt(status$$1 .inReplyToUserId);
+                parcel$$1 .writeLong(status$$1 .inReplyToUserId);
             }
             com.codepath.apps.twitterclient.models.Coordinates$$Parcelable.write(status$$1 .coordinates, parcel$$1, flags$$0, identityMap$$0);
             if (status$$1 .truncated == null) {
@@ -78,7 +78,7 @@ public class Status$$Parcelable
                 parcel$$1 .writeInt(-1);
             } else {
                 parcel$$1 .writeInt(1);
-                parcel$$1 .writeInt(status$$1 .inReplyToStatusId);
+                parcel$$1 .writeLong(status$$1 .inReplyToStatusId);
             }
             parcel$$1 .writeString(status$$1 .inReplyToStatusIdStr);
             if (status$$1 .id == null) {
@@ -129,13 +129,13 @@ public class Status$$Parcelable
             identityMap$$1 .put(reservation$$0, status$$4);
             status$$4 .idStr = parcel$$3 .readString();
             int int$$0 = parcel$$3 .readInt();
-            java.lang.Integer integer$$0;
+            java.lang.Long long$$0;
             if (int$$0 < 0) {
-                integer$$0 = null;
+                long$$0 = null;
             } else {
-                integer$$0 = parcel$$3 .readInt();
+                long$$0 = parcel$$3 .readLong();
             }
-            status$$4 .inReplyToUserId = integer$$0;
+            status$$4 .inReplyToUserId = long$$0;
             Coordinates coordinates$$0 = com.codepath.apps.twitterclient.models.Coordinates$$Parcelable.read(parcel$$3, identityMap$$1);
             status$$4 .coordinates = coordinates$$0;
             int int$$1 = parcel$$3 .readInt();
@@ -160,34 +160,34 @@ public class Status$$Parcelable
             status$$4 .createdAt = parcel$$3 .readString();
             status$$4 .inReplyToScreenName = parcel$$3 .readString();
             int int$$3 = parcel$$3 .readInt();
-            java.lang.Integer integer$$1;
+            java.lang.Long long$$1;
             if (int$$3 < 0) {
-                integer$$1 = null;
+                long$$1 = null;
             } else {
-                integer$$1 = parcel$$3 .readInt();
+                long$$1 = parcel$$3 .readLong();
             }
-            status$$4 .inReplyToStatusId = integer$$1;
+            status$$4 .inReplyToStatusId = long$$1;
             status$$4 .inReplyToStatusIdStr = parcel$$3 .readString();
             int int$$4 = parcel$$3 .readInt();
-            Long long$$0;
+            java.lang.Long long$$2;
             if (int$$4 < 0) {
-                long$$0 = null;
+                long$$2 = null;
             } else {
-                long$$0 = parcel$$3 .readLong();
+                long$$2 = parcel$$3 .readLong();
             }
-            status$$4 .id = long$$0;
+            status$$4 .id = long$$2;
             Place place$$0 = com.codepath.apps.twitterclient.models.Place$$Parcelable.read(parcel$$3, identityMap$$1);
             status$$4 .place = place$$0;
             status$$4 .text = parcel$$3 .readString();
             status$$4 .inReplyToUserIdStr = parcel$$3 .readString();
             int int$$5 = parcel$$3 .readInt();
-            java.lang.Integer integer$$2;
+            Integer integer$$0;
             if (int$$5 < 0) {
-                integer$$2 = null;
+                integer$$0 = null;
             } else {
-                integer$$2 = parcel$$3 .readInt();
+                integer$$0 = parcel$$3 .readInt();
             }
-            status$$4 .retweetCount = integer$$2;
+            status$$4 .retweetCount = integer$$0;
             int int$$6 = parcel$$3 .readInt();
             java.lang.Boolean boolean$$2;
             if (int$$6 < 0) {

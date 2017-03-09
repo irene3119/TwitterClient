@@ -106,6 +106,9 @@ public class UserCredential{
     @SerializedName("profile_use_background_image")
     @Expose
     public Boolean profileUseBackgroundImage;
+    @SerializedName("profile_banner_url")
+    @Expose
+    public String profileBannerUrl;
     @SerializedName("protected")
     @Expose
     public Boolean _protected;
